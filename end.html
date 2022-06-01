@@ -4,9 +4,11 @@
 		<title>Загрузка...</title>
 	</head>
 	<body>
+		<audio src="audio/Music.wav" id="audio"></audio>
 		<div class="transp">
 			<div id="subtransp">
 				<img src="images/loader.png" id="loader"/>
+				<p id="end">Конец</p>
 			</div>
 		</div>
 	</body>
@@ -63,6 +65,7 @@
 <script>
 	var load = document.getElementById("loader");
 	var fldk = document.getElementsByClassName("transp")[0];
+	var audio = document.getElementById("audio")
 
 	window.onload = ()=>{
 		load.style.opacity = 1;
@@ -74,4 +77,19 @@
 
 		load.style.bottom = "100%";
 	}, 2000);
+
+	fldk.onclick = ()=>{
+		audio.play()
+		audio.volume = 1
+		fldk.onclick = ()=>{
+			document.getElementById("end").style.opacity = 1
+			for(j=0; j<10; j++) {
+				(function(j){
+					setTimeout(()=>{
+						volume -= .1
+					},j*100)
+				})(j);
+			}
+		}
+	}
 </script>
