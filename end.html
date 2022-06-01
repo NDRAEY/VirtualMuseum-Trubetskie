@@ -32,28 +32,41 @@
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		background-color: #000000;
+		background-color: #444444;
 		overflow: hidden;
 	}
 
 	.transp {
 		width: 100%;
 		height: 100%;
-		position: relative;
+		position: absolute;
 	}
 
 	.transp #subtransp #loader {
 		opacity: 0;
 		position: absolute;
 		margin: auto;
+		width: calc(100% - 120px); 
 	    bottom: 0;
 	    transition: 4s;
+	}
+
+	.transp #subtransp #end {
+		opacity: 0;
+		position: absolute;
+		margin: auto;
+		top: 50%;
+	    left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		color: white;
+		font-size: 56px;
+	    transition: 2s;
 	}
 
 	.transp #subtransp {
 		width: 100%;
 		height: 100%;
-		position: absolute;
+		position: relative;
 		top: 0;
 		left: 0;
 		z-index: 10;
@@ -83,11 +96,11 @@
 		audio.volume = 1
 		fldk.onclick = ()=>{
 			document.getElementById("end").style.opacity = 1
-			for(j=0; j<10; j++) {
+			for(j=0; j<20; j++) {
 				(function(j){
 					setTimeout(()=>{
-						volume -= .1
-					},j*100)
+						audio.volume -= .1
+					},j*50)
 				})(j);
 			}
 		}

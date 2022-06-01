@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Жена Трубекцого - Екатерина Трубецкая</title>
+		<title>Сергей Трубецкой</title>
 	</head>
 	<body>
 		<div id="gallery">
 			<div class="en" id="w1">
-				<div class="skx">Екатерина Трубецкая</div>
+				<div class="skx">Сергей Трубецкой</div>
 			</div>
 			<div class="en" id="w2">
-				<div class="skx">Дом Екатерины Трубецкой в Иркутске</div>
+				<div class="skx">Трубецкой после амнистии</div>
 			</div>
 			<div class="en" id="w3">
-				<div class="skx">Дети Трубецкой</div>
+				<div class="skx">Дети</div>
 			</div>
 			<div class="en" id="w4">
-				<div class="skx">Могила Трубецкой в Иркутске</div>
+				<div class="skx">Могила Трубецкого</div>
 			</div>
 			<audio src="" id="audio" controls></audio>
 		</div>
 		<div id="odeyalo">
-			<img src="images/tya/Trubetskaja-new.jpeg" id="book" width="400">
+			<img src="images/ty/trubetskoj.jpg" id="book" width="400">
 			<div id="click">
 				<span id="text">Нажми на меня!!!</span>
 			</div>
@@ -94,6 +94,7 @@
 		left: 50%;
 		font-size: 38px;
 		color: #dfdfdf;
+		/* padding: 6px; */
 		transform: translateX(-50%) translateY(-50%);
 	}
 
@@ -110,14 +111,6 @@
 		display: flex;
 		width: 100%;
 	}
-
-	/*
-	#odeyalo #pulsemon {
-		position: absolute;
-		margin: auto;
-		top: 50%;
-		bottom: 50%;
-	}*/
 
 	#gallery {
 		opacity: 0;
@@ -152,19 +145,19 @@
 	}
 
 	#gallery #w1 {
-		background: no-repeat center/110% url("images/tya/Trubetskaja-new.jpeg")
+		background: no-repeat center/110% url("images/ty/trubetskoj.jpg")
 	}
 	
 	#gallery #w2 {
-		background: no-repeat center/110% url("images/tya/trubetskaja-home-irkutsk.jpg")
+		background: no-repeat center/110% url("images/ty/amnysty.jpg")
 	}
 
 	#gallery #w3 {
-		background: no-repeat center/110% url("images/tya/Trubetskaja_childs.png")
+		background: no-repeat center/110% url("images/ty/file.jpg")
 	}
 
 	#gallery #w4 {
-		background: no-repeat center/110% url("images/tya/End_Of_trubetskaja.png")
+		background: no-repeat center/110% url("images/ty/end.jpg")
 	}
 
 	#gallery .en .skx {
@@ -231,11 +224,9 @@
 	var subsequator = document.getElementById("click")
 	
 	var audios = [
-		"audio/mih01.mp3",
-		"audio/mih02.mp3",
-		"audio/mih03.mp3",
-		"audio/mih04.mp3",
-		"audio/mih05.mp3",
+		"audio/Vitaly1.mp3",
+		"audio/Vitaly2.mp3",
+		"audio/Vitaly3.mp3",
 	]
 
 	var index = 0;
@@ -255,6 +246,7 @@
 		overimage.src = image
 		setTimeout(()=>{
 			overlay.style.display = "block"
+			overimage.height = overimage.height>overimage.width?(overimage.height-120):overimage.height-20
 			setTimeout(()=>{
 				overlay.style.opacity = 1;
 			},50)
@@ -262,10 +254,10 @@
 	}
 
 	var im = [
-		[document.getElementById("w1"), "images/ty/pre-7.jpg"],
-		[document.getElementById("w2"), "images/ty/trubetskaja-home-irkutsk.jpg"],
+		[document.getElementById("w1"), "images/ty/trubetskoj.jpg"],
+		[document.getElementById("w2"), "images/ty/amnysty.jpg"],
 		[document.getElementById("w3"), "images/ty/file.jpg"],
-		[document.getElementById("w4"), "images/tya/End_Of_trubetskaja.png"],
+		[document.getElementById("w4"), "images/ty/end.jpg"],
 	]
 
 	for(idx=0; idx<im.length; idx++) {
