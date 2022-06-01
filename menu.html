@@ -1,0 +1,148 @@
+<!DOCTYPE html> 
+
+<html>
+	<meta charset="utf-8"></meta>
+	<head><title>Виртуальный музей: Трубецкие</title></head> 
+	<body>
+		<div class="en" id="mikha">
+			<div class="center"><h2 class="text la">Биография Трубецкого</h2></div>
+		</div>
+		<div class="en" id="borikmm">
+			<div class="center"><h2 class="text ra">Записки</h2></div>
+		</div>
+		<div class="en" id="vitalya">
+			<div class="center"><h2 class="text la">Жена Трубецкого</h2></div>
+		</div>
+		<div class="en" id="fraynce">
+			<div class="center"><h2 class="text ra">...</h2></div>
+		</div>
+		<div id="lekha">
+			<div class="center"><h2 class="text">Заключение</h2></div>
+		</div>
+	</body>
+</html>
+
+<style>
+	html, body {
+		margin: 2px;
+		padding: 2px;
+		background-color: black;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.en {
+		opacity: 0;
+		display: block;
+		background-color: #AAAAAA;
+		text-align: center;
+		margin-right: 4px;
+		margin-bottom: 4px;
+		width: calc(50% - 8px);
+		height: calc(50% - 8px);
+		transition: 0.75s;
+		float: left;
+		font: oblique 16px serif;
+		background-size: 80%;
+	}
+
+	.ra {
+		margin-right: 20px;
+		text-align: right;
+	}
+
+	.la {
+		margin-left: 20px;
+		text-align: left;
+	}
+
+	#lekha {
+		opacity: 0;
+		position: fixed;
+		border: 4px solid black;
+		text-align: center;
+		display: block;
+		width: 40%;
+		height: 50%;
+		top: 25%;
+		left: 30%;
+		background-color: #aaaaaa;
+		transition: 0.75s;
+	}
+
+	#mikha {
+		background: no-repeat top/100% url("images/Trubetzkoj.jpeg");
+		background-color: #d4d1d1;
+	}
+
+	#borikmm {
+		background: no-repeat center/100% url("images/zapiski.jpg");
+		background-color: #ead8b4;
+	}
+
+	#vitalya {
+		background: no-repeat top/100% url("images/Trubetskaja.jpeg");
+		color: #666666;
+		background-color: #ffffff;
+	}
+
+	#mikha:hover, #borikmm:hover, #fraynce:hover, #vitalya:hover, #lekha:hover {
+		background-size: 110%;
+		background-color: black;
+		color: #757575;
+	}
+
+	#mikha:hover {
+		background-size: 110%;
+		background-color: #ffffff;
+		transition: 1s;
+	}
+	
+	#borikmm:hover {
+		background-size: 110%;
+		background-color: #e6d4ac;
+		transition: 1s;
+	}
+
+	#vitalya:hover {
+		background-size: 110%;
+		background-color: #261f0d;
+		transition: 1s;
+	}
+</style>
+
+<script>
+	var el1 = document.getElementById("mikha")
+	var el2 = document.getElementById("borikmm")
+	var el3 = document.getElementById("vitalya")
+	var el4 = document.getElementById("fraynce")
+	var el5 = document.getElementById("lekha")
+
+	var all = [
+		[el1, "trubetskoj.html"],
+		[el2, "writings.html"],
+		[el3, "wife_trubetskoj.html"],
+		[el4, "images/TechnicalIssues.png"],
+		[el5, "end.html"],
+	]
+
+	for(el of all){
+		(function(url) {
+			el[0].onclick = ()=>{document.location.href=url}
+		})(el[1]);
+	}
+
+	var els = document.getElementsByClassName("en")
+	for(mk=0; mk<els.length; mk++) {
+		(function(mk){
+			setTimeout(()=>{
+				els[mk].style.opacity = 1;
+			},1000+(500*mk))
+		})(mk);
+	}
+
+	setTimeout(()=>{
+		document.getElementById("lekha").style.opacity = 1;
+	}, 1000+2000)
+</script>
