@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Семейная жизнь Трубецких</title>
+	</head>
+	<body>
+		<div id="gallery">
+			<div class="en" id="w1">
+				<div class="skx">Екатерина Трубецкая</div>
+			</div>
+			<audio src="" id="audio" controls></audio>
+		</div>
+		<div class="enn">
+			Екатерина Трубецкая
+		</div>
+
+		<div class="transp" id="transp">
+			<div id="subtransp">
+				<div id="centerit">
+					<img src="Pulsemon.png" id="overlay_image"/>
+					<img src="images/cancel.png" id="ccw" width=40 onclick="hide_pulsemon()"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	html, body {
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	body {
+		background: no-repeat center/100% url("images/room_borikmm.jpg");
+	}
+	
+	/*
+	#button {
+		border: 3px rgb(145, 145, 145) solid;
+		background-color: #bcbcbc;
+		margin-bottom: 4px;
+		font-size: 32px;
+	}
+	*/
+	.enn {
+
+
+	}
+	#odeyalo {
+		opacity: 1;
+		display: block;
+		position: absolute;
+		width: fit-content;
+		height: fit-content;
+		top: 200%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		justify-content: center;
+		align-content: center;
+		text-align: center;
+		transition: 2s;
+	}
+
+	#odeyalo #click {
+		opacity: 0;
+		background-color: rgba(0,0,0,0.5);
+		position:absolute;
+		top: 0;
+		left:0;
+		bottom:0;
+		right: 0;
+		width:100%;
+		height: 100%;
+		content: " ";
+		transition: 1s;
+	}
+
+	#click #text {
+		position: inherit;
+		top: 50%;
+		left: 50%;
+		font-size: 38px;
+		color: #dfdfdf;
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	#odeyalo #click:hover {
+		opacity: 1;
+	}
+
+	#pulsemon {
+		width: 60px;
+		height: 60px;
+	}
+
+	#audio {
+		display: flex;
+		width: 100%;
+	}
+
+	/*
+	#odeyalo #pulsemon {
+		position: absolute;
+		margin: auto;
+		top: 50%;
+		bottom: 50%;
+	}*/
+
+	#gallery {
+		transition: 1s;
+		width: 100%;
+		height: 100%;
+	}
+
+	.en {
+		opacity: 1;
+		display: block;
+		background-color: #AAAAAA;
+		text-align: center;
+		margin-right: 4px;
+		margin-bottom: 4px;
+		width: calc(50% - 8px);
+		height: calc(50% - 32px);
+		transition: 0.75s;
+		float: left;
+		font: oblique 16px serif;
+		background-size: 80%;
+	}
+
+	.ra {
+		margin-right: 20px;
+		text-align: right;
+	}
+
+	.la {
+		margin-left: 20px;
+		text-align: left;
+	}
+
+	#gallery #w1 {
+		background: no-repeat center/110% url("images/ty/Troubetskaya-5.jpg")
+	}
+
+	#gallery .en .skx {
+		width: fit-content;
+		height: fit-content;
+		position: relative;
+		top: 90%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background-color: #ffffff;
+		color: #000;
+		font-size: 22px;
+	}
+
+	.transp {
+		display: none;
+		opacity: 0;
+		transition: 1s;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+
+	.transp #subtransp {
+		opacity: 1;
+		position: absolute;
+		margin: auto;
+	    top: 50%;
+	    left: 50%;
+	    transition: 1s;
+	}
+
+	.transp #subtransp {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		background-color: rgba(0,0,0,0.5);
+		content: " ";
+	}
+
+	#centerit {
+		position: relative;
+		width: fit-content;
+		height: fit-content;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		display: flex;
+		align-items: flex-start;
+	}
+
+	#centerit #ccw {
+		margin-left: 2px;
+	}
+</style>
+
+<script>
+	var book = document.getElementById("odeyalo")
+	var subsequator = document.getElementById("click")
+	
+	var audios = [
+		"audio/mih01.mp3",
+		"audio/mih02.mp3",
+		"audio/mih03.mp3",
+		"audio/mih04.mp3",
+		"audio/mih05.mp3",
+	]
+
+	var index = 0;
+	var player = document.getElementById("audio")
+
+	var overlay = document.getElementById("transp")
+	var overimage = document.getElementById("overlay_image")
+
+	function hide_pulsemon() {
+		overlay.style.opacity = 0;
+		setTimeout(()=>{
+			overlay.style.display = "none"
+		},900)
+	}
+
+	function make_image(image) {
+		overimage.src = image
+		setTimeout(()=>{
+			overlay.style.display = "block"
+			setTimeout(()=>{
+				overlay.style.opacity = 1;
+			},50)
+		},150) // Approximetly ~150ms image load...
+	}
+
+	var im = [
+		[document.getElementById("w1"), "images/ty/amnysty.jpg"],
+		[document.getElementById("w2"), "images/ty/end.jpg"],
+		[document.getElementById("w3"), "images/ty/trubetskoj.jpg"],
+		[document.getElementById("w4"), "images/tya/End_Of_trubetskaja.png"],
+	]
+
+	for(idx=0; idx<im.length; idx++) {
+		e = im[idx]
+		pss = function(elm, img){
+			elm.onclick = ()=>{make_image(img)}
+		}
+		pss(e[0], e[1]) // Только так работает
+	}
+
+	autoplayer = ()=>{
+		console.log("should play...")
+		index+=1
+		player.src = audios[index]
+		if(index>=audios.length-1) {
+			player.removeEventListener("ended", autoplayer)
+		}
+		player.play()
+	}
+
+	player.addEventListener('ended', autoplayer)
+
+	window.onload = ()=>{
+		setTimeout(()=>{book.style.opacity = 1;},700);
+		book.style.top = "50%";
+		player.src = audios[index];
+	}
+
+	// Я бы мог это оптимизировать но времени нет...
+
+	var gallery = document.getElementById("gallery")
+
+	subsequator.onclick = ()=>{
+		book.style.transition = "1s"
+		book.style.opacity = 0;
+		setTimeout(()=>{document.body.removeChild(book)}, 1000)
+		setTimeout(()=>{gallery.style.opacity = 1},1200)
+		player.play()
+	}
+</script>
